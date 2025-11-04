@@ -2,7 +2,7 @@ import { useEffect, useState, useCallback } from "react";
 import Counter from "./components/Counter.jsx";
 import Statistics from "./components/Statistics.jsx";
 
-const API_BASE = "http://localhost:8080/stats"; // поменяй, если у тебя 3000
+const API_BASE = import.meta.env.VITE_API_BASE || "http://localhost:8080/stats";
 
 function App() {
     const [stats, setStats] = useState({});
