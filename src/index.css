@@ -1,0 +1,49 @@
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color: #213547;
+  background-color: #ffffff;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* вот это главное */
+body {
+  margin: 0;
+  padding: 0;
+  min-width: 320px;
+  background: #fff;
+}
+
+/* можешь оставить кнопки и ссылки как было */
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+.stats-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.stats-table th,
+.stats-table td {
+  border: 1px solid #ccc;
+  padding: 8px 12px;
+  text-align: left;
+}
+
+.stats-table tr:nth-child(even) {
+  background-color: #f8f8f8;
+}
+
+.stats-table tr:hover {
+  background-color: #f0f0f0;
+}
