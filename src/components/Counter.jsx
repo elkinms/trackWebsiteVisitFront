@@ -3,18 +3,21 @@ import { useState } from "react";
 export default function Counter({ apiBase, onUpdated }) {
     const [country, setCountry] = useState("");
     const [pending, setPending] = useState(false);
+    const [error, setError] = useState("");
 
     const handleAdd = async () => {
         const code = country.trim().toLowerCase();
         if (!code) return;
 
         setPending(true);
+        setError("");
         try {
             await fetch(`${apiBase}/${code}`, { method: "PATCH" });
             setCountry("");
             onUpdated?.();
         } catch (err) {
             console.error("Failed to update country", err);
+            setError("Server is not responding. Please try again later.");
         } finally {
             setPending(false);
         }
@@ -39,6 +42,12 @@ export default function Counter({ apiBase, onUpdated }) {
             >
                 {pending ? "Saving..." : "Add"}
             </button>
+
+            {error && (
+                <p style={{ color: "red", marginTop: 8 }}>
+                    {error}
+                </p>
+            )}
         </section>
     );
 }
